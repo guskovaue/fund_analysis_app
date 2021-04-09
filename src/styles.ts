@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     alignSelf: "flex-start",
     textTransform: "uppercase",
-    margin: 14
+    margin: 14,
   },
   row: {
     height: '75%',
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     height: '5%',
     margin: 12,
     borderWidth: 1,
-    borderColor: "#009688"
+    borderColor: "#009688",
   },
 })
 

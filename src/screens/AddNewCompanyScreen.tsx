@@ -1,22 +1,29 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput } from 'react-native';
-import styles from '../styles'
-import SaveButton from '../components/SaveButton'
-import { AddNewCompanyScreenNavigationProp } from '../types'
+import styles from '../styles';
+import SaveButton from '../components/SaveButton';
+import { AddNewCompanyScreenNavigationProp, State } from '../types';
+import { createAddNewCompanyAction } from '../store/actions';
+import { useSelector, useDispatch } from 'react-redux';
 
 export default ({ navigation }: { navigation: AddNewCompanyScreenNavigationProp }):React.ReactElement => {
-  const [ text, onChangeText ] = useState('')
+  const dispatch = useDispatch();
+  const companies: string[] = useSelector((state: State) => state.companies);
+  const [ text, onChangeText ] = useState('');
+
   return (
     <View style={{ flex: 1 }}>
       <Text style={styles.titleText}>Company name</Text>
       <TextInput
-      style={styles.input}
+        style={styles.input}
         value={text}
         onChangeText={onChangeText}
+        placeholder={companies[0]}
+        placeholderTextColor='black'
       />
       <View style={{ flex: 1 }}/>
       <SaveButton
-        onPress={() => navigation.navigate('My companies')}
+        onPress={() => dispatch(createAddNewCompanyAction(text)) && navigation.navigate('My companies')}
         title='Save'
       />
     </View>

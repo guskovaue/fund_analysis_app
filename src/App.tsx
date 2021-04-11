@@ -8,6 +8,7 @@ import { StackParamList } from './types';
 import { createStore } from 'redux';
 import reducers from './store/reducers';
 import { Provider } from 'react-redux';
+import { EDIT_COMPANY } from './store/actions';
 
 const { Navigator, Screen } = createStackNavigator<StackParamList>();
 const store = createStore(reducers);
@@ -22,7 +23,7 @@ const App: React.FunctionComponent = () => {
             component={HomeScreen}
           />
           <Screen
-            name='Add new company'
+            name={EDIT_COMPANY}
             component={CompanyDetailsScreen}
           />
         </Navigator>

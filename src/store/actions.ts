@@ -1,8 +1,8 @@
-export const ADD_NEW_COMPANY = 'ADD_NEW_COMPANY';
+export const EDIT_COMPANY = 'Edit company';
 
 export const createAddNewCompanyAction = ( companyName: string ): { type: string; companyName: string} => {
   return {
-    type: ADD_NEW_COMPANY,
+    type: EDIT_COMPANY,
     companyName
   }
 };

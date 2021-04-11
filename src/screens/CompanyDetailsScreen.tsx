@@ -4,13 +4,18 @@ import styles from '../styles';
 import SaveButton from '../components/CompanyButton';
 import { AddNewCompanyScreenNavigationProp, State } from '../types';
 import { createAddNewCompanyAction } from '../store/actions';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-export default ({ navigation }: { navigation: AddNewCompanyScreenNavigationProp }):React.ReactElement => {
+export default ({ 
+  navigation, 
+  route 
+}: { 
+  navigation: AddNewCompanyScreenNavigationProp, 
+  route: { params: { id: number; companyName: string }}
+}):React.ReactElement => {
   const dispatch = useDispatch();
-  const companies: string[] = useSelector((state: State) => state.companiesNames);
   const [ text, onChangeText ] = useState('');
-
+  console.log('route.companyName', route, route.params.companyName)
   return (
     <View style={{ flex: 1 }}>
       <Text style={styles.titleText}>Company name</Text>
@@ -18,7 +23,7 @@ export default ({ navigation }: { navigation: AddNewCompanyScreenNavigationProp 
         style={styles.input}
         value={text}
         onChangeText={onChangeText}
-        placeholder={companies[0]}
+        placeholder={route.params.companyName || 'Add company name'}
         placeholderTextColor='black'
       />
       <View style={{ flex: 1 }}/>

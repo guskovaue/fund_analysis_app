@@ -1,4 +1,4 @@
-import { ADD_NEW_COMPANY } from './actions';
+import { EDIT_COMPANY } from './actions';
 
 export const INITIAL_STATE = {
     companiesNames: [] as string[],
@@ -12,7 +12,7 @@ type Action = {
 
 export default (state = INITIAL_STATE, action: Action): State => {
   switch (action.type) {
-    case ADD_NEW_COMPANY:
+    case EDIT_COMPANY:
       return {
           ...state, 
           companiesNames: [...state.companiesNames, action.companyName ],

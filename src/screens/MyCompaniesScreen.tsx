@@ -6,15 +6,15 @@ import CompanyDetailsButton from '../components/SaveCompanyDetailsButton'
 import { MyCompanyScreenNavigationProp, State } from '../types'
 import { EDIT_COMPANY } from '../store/actions'
 
-export default ({ navigation }: {navigation: MyCompanyScreenNavigationProp}): React.ReactElement => {
+export default ({ navigation }: { navigation: MyCompanyScreenNavigationProp }): React.ReactElement => {
   const companiesNames: string[] = useSelector((state: State ) => state.companiesNames );
-  companiesNames.map(( company, index ) => console.log('!', company, index))
+
   return (
   <View style={styles.row}>
-    { companiesNames.map( ( company, index ) => (
+    { companiesNames.map((company, index) => (
       <CompanyDetailsButton
       title={company}
-      onPress={() => navigation.navigate( EDIT_COMPANY, { id: index + 1, companyName: company })}
+      onPress={ () => navigation.navigate( EDIT_COMPANY, { id: index + 1, companyName: company })}
     />
     ))}
     <CompanyDetailsButton

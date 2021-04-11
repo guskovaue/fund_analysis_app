@@ -5,32 +5,40 @@ import SaveButton from '../components/Button';
 import { AddNewCompanyScreenNavigationProp } from '../types';
 import { createAddNewCompanyAction } from '../store/actions';
 import { useDispatch } from 'react-redux';
+import { Tabs, Tab } from 'native-base';
 
 export default ({ 
   navigation, 
-  route 
+  route: { params: { companyName }}
 }: { 
   navigation: AddNewCompanyScreenNavigationProp, 
-  route: { params: { id: number; companyName: string }}
+  route: {params: { id: number; companyName: string }}
 }):React.ReactElement => {
   const dispatch = useDispatch();
-  const [ text, onChangeText ] = useState('');
-  console.log('route.companyName', route, route.params.companyName)
+  const [ text, onChangeText ] = useState(companyName);
+
   return (
     <View style={{ flex: 1 }}>
-      <Text style={styles.titleText}>Company name</Text>
+      <Text style={ styles.titleText }>Company name</Text>
       <TextInput
-        style={styles.input}
-        value={text}
-        onChangeText={onChangeText}
-        placeholder={route.params.companyName || 'Add company name'}
-        placeholderTextColor='black'
+        style={ styles.input }
+        value={ text }
+        onChangeText={ onChangeText }
+        placeholder={ companyName || 'Add company name' }
       />
-      <View style={{ flex: 1 }}/>
-      <SaveButton
+      <View style={{ flex: 1 }}></View>
+      <SaveButton 
         onPress={() => dispatch(createAddNewCompanyAction(text)) && navigation.navigate('My companies')}
         title='Save'
       />
+      <Tabs>
+        <Tab
+          heading='Tab1'>
+        </Tab>
+        <Tab
+          heading='Tab2'>
+        </Tab>
+      </Tabs>
     </View>
   );
 };

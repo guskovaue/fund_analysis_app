@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput } from 'react-native';
 import styles from '../styles';
-import SaveButton from '../components/Button';
+import SaveButton from '../components/CompanyButton';
 import { AddNewCompanyScreenNavigationProp, State } from '../types';
 import { createAddNewCompanyAction } from '../store/actions';
 import { useSelector, useDispatch } from 'react-redux';

@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import AddNewCompanyScreen from './screens/CompanyDetailsScreen';
+import CompanyDetailsScreen from './screens/CompanyDetailsScreen';
 import HomeScreen from './screens/MyCompaniesScreen';
 import { StackParamList } from './types';
 import { createStore } from 'redux';
@@ -23,7 +23,7 @@ const App: React.FunctionComponent = () => {
           />
           <Screen
             name='Add new company'
-            component={AddNewCompanyScreen}
+            component={CompanyDetailsScreen}
           />
         </Navigator>
       </NavigationContainer>

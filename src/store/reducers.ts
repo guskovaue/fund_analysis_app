@@ -15,7 +15,7 @@ export default (state = INITIAL_STATE, action: Action): State => {
     case ADD_NEW_COMPANY:
       return {
           ...state, 
-          companiesNames: state.companiesNames[ action.companyName ],
+          companiesNames: [...state.companiesNames, action.companyName ],
         };
     default:
       return state;

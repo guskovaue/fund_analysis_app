@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStore } from 'redux';
 import reducers from './store/reducers';
 import { Provider } from 'react-redux';
-import StackNavigator from './navigation/StackNavigation';
+import { MainStackNavigator } from './navigation/StackNavigator';
 
 const store = createStore(reducers);
 
@@ -12,7 +12,7 @@ const App: React.FunctionComponent = () => {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <StackNavigator />
+        <MainStackNavigator />
       </NavigationContainer>
     </Provider>
   );

@@ -14,7 +14,7 @@ export default ({
 }: { 
   navigation: CompanyDetailsScreenCompositeNavigationProp, 
   route: CompanyDetailsRouteProp
-}):React.ReactElement => {
+}): React.ReactElement => {
   const dispatch = useDispatch();
   const [ text, onChangeText ] = useState(companyName);
 

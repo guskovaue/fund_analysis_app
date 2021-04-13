@@ -13,7 +13,7 @@ export default ({
 }: { 
   navigation: CompanyDetails2ScreenTabNavigationProp, 
   route: CompaynyDetails2RouteProp
-}):React.ReactElement => {
+}): React.ReactElement => {
   const dispatch = useDispatch();
   const [ text, onChangeText ] = useState(companyName);
 

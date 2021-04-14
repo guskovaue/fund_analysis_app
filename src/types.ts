@@ -1,6 +1,6 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import { INITIAL_STATE } from './store/reducers';
-import { EDIT_COMPANY, EDIT_COMPANY_2, MY_COMPANIES } from './store/actions';
+import { EDIT_COMPANY, EDIT_COMPANY_2, MY_COMPANIES } from './constants';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { CompositeNavigationProp, RouteProp } from '@react-navigation/native';
 

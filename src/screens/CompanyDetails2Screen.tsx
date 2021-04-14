@@ -5,7 +5,7 @@ import SaveButton from '../components/Button';
 import { CompanyDetails2ScreenTabNavigationProp, CompaynyDetails2RouteProp } from '../types';
 import { createAddNewCompanyAction } from '../store/actions';
 import { useDispatch } from 'react-redux';
-import { MY_COMPANIES } from '../store/actions';
+import { MY_COMPANIES } from '../constants';
 
 export default ({ 
   navigation, 

@@ -1,10 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
 import { useSelector } from 'react-redux';
-import styles from '../styles'
-import CompanyDetailsButton from '../components/SaveCompanyDetailsButton'
-import { MyCompanyScreenStackNavigationProp, State } from '../types'
-import { EDIT_COMPANY } from '../store/actions'
+import styles from '../styles';
+import CompanyDetailsButton from '../components/SaveCompanyDetailsButton';
+import { MyCompanyScreenStackNavigationProp, State } from '../types';
+import { EDIT_COMPANY } from '../constants';
 
 export default ({ navigation }: { navigation: MyCompanyScreenStackNavigationProp }): React.ReactElement => {
   const companiesNames: string[] = useSelector((state: State ) => state.companiesNames );

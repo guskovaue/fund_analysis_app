@@ -6,7 +6,7 @@ import { CompanyDetailsScreenCompositeNavigationProp, CompanyDetailsRouteProp } 
 import { createAddNewCompanyAction } from '../store/actions';
 import { useDispatch } from 'react-redux';
 import { Tabs, Tab } from 'native-base';
-import { MY_COMPANIES } from '../store/actions';
+import { MY_COMPANIES } from '../constants';
 
 export default ({ 
   navigation, 

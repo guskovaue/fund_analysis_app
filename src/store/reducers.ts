@@ -1,4 +1,4 @@
-import { EDIT_COMPANY } from './actions';
+import { EDIT_COMPANY } from '../constants';
 
 export const INITIAL_STATE = {
     companiesNames: [] as string[],

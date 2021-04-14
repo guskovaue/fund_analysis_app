@@ -4,7 +4,7 @@ import { ParamList } from '../types';
 import CompanyDetailsScreen from '../screens/CompanyDetailsScreen';
 import CompanyDetails2Screen from '../screens/CompanyDetails2Screen';
 import HomeScreen from '../screens/MyCompaniesScreen';
-import { EDIT_COMPANY, EDIT_COMPANY_2, MY_COMPANIES } from '../store/actions';
+import { EDIT_COMPANY, EDIT_COMPANY_2, MY_COMPANIES } from '../constants';
 
 const { Navigator, Screen } = createStackNavigator<ParamList>();
 

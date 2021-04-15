@@ -5,16 +5,16 @@ import SaveButton from '../components/Button';
 import { CompanyDetailsScreenCompositeNavigationProp, CompanyDetailsRouteProp } from '../types';
 import { createAddNewCompanyAction } from '../store/actions';
 import { useDispatch } from 'react-redux';
-import { Tabs, Tab } from 'native-base';
 import { MY_COMPANIES } from '../constants';
 
 export default ({ 
   navigation, 
-  route: { params: { companyName }}
+  route
 }: { 
   navigation: CompanyDetailsScreenCompositeNavigationProp, 
   route: CompanyDetailsRouteProp
 }): React.ReactElement => {
+  const companyName = route.params.companyName
   const dispatch = useDispatch();
   const [ text, onChangeText ] = useState(companyName);
 
@@ -32,14 +32,6 @@ export default ({
         onPress={() => dispatch(createAddNewCompanyAction(text)) && navigation.navigate(MY_COMPANIES)}
         title='Save'
       />
-      <Tabs>
-        <Tab
-          heading='Tab1'>
-        </Tab>
-        <Tab
-          heading='Tab2'>
-        </Tab>
-      </Tabs>
     </View>
   );
 };

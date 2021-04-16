@@ -1,8 +1,8 @@
-import { EDIT_COMPANY } from '../constants';
+import { COMPANY_INFO } from '../constants';
 
 export const createAddNewCompanyAction = ( companyName: string ): { type: string; companyName: string} => {
   return {
-    type: EDIT_COMPANY,
+    type: COMPANY_INFO,
     companyName
   }
 };

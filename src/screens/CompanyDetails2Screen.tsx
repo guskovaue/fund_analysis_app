@@ -3,8 +3,6 @@ import { View, Text, TextInput } from 'react-native';
 import styles from '../styles';
 import SaveButton from '../components/Button';
 import { CompanyDetails2ScreenTabNavigationProp, CompaynyDetails2RouteProp } from '../types';
-import { createAddNewCompanyAction } from '../store/actions';
-import { useDispatch } from 'react-redux';
 import { MY_COMPANIES } from '../constants';
 
 export default ({ 
@@ -14,7 +12,6 @@ export default ({
   navigation: CompanyDetails2ScreenTabNavigationProp, 
   route: CompaynyDetails2RouteProp
 }): React.ReactElement => {
-  const dispatch = useDispatch();
   const [ text, onChangeText ] = useState(companyName);
 
   return (
@@ -28,7 +25,7 @@ export default ({
       />
       <View style={{ flex: 1 }}></View>
       <SaveButton 
-        onPress={() => dispatch(createAddNewCompanyAction(text)) && navigation.navigate(MY_COMPANIES)}
+        onPress={() => navigation.navigate(MY_COMPANIES)}
         title='Save'
       />
     </View>

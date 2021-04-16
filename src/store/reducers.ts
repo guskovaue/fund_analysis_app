@@ -1,18 +1,15 @@
-import { EDIT_COMPANY } from '../constants';
+import { COMPANY_INFO } from '../constants';
+import { AnyAction } from 'redux';
 
 export const INITIAL_STATE = {
     companiesNames: [] as string[],
 }
 
 type State = typeof INITIAL_STATE;
-type Action = {
-  type: string
-  companyName: string
-}
 
-export default (state = INITIAL_STATE, action: Action): State => {
+export default (state = INITIAL_STATE, action: AnyAction): State => {
   switch (action.type) {
-    case EDIT_COMPANY:
+    case COMPANY_INFO:
       return {
           ...state, 
           companiesNames: [...state.companiesNames, action.companyName ],

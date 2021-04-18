@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { useSelector } from 'react-redux';
 import styles from '../styles';
-import CompanyDetailsButton from '../components/SaveCompanyDetailsButton';
+import CompanyDetailsButton from '../components/CompanyDetailsButton';
 import { MyCompanyScreenStackNavigationProp, State } from '../types';
 import { COMPANY_DETAILS, COMPANY_INFO } from '../constants';
 
@@ -13,7 +13,7 @@ export default ({ navigation }: { navigation: MyCompanyScreenStackNavigationProp
   <View style={styles.row}>
     { companiesNames.map((company) => (
       <CompanyDetailsButton
-      title={company}
+      buttonLabel={company}
       onPress={ () => navigation.navigate(
         COMPANY_DETAILS, 
         { screen: COMPANY_INFO, 
@@ -24,7 +24,7 @@ export default ({ navigation }: { navigation: MyCompanyScreenStackNavigationProp
     />
     ))}
     <CompanyDetailsButton
-      title='Add new company'
+      showCancelButton={false}
       onPress={() => navigation.navigate(
         COMPANY_DETAILS, 
         { screen: COMPANY_INFO, 

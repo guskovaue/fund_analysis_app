@@ -50,6 +50,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#009688",
   },
+  cancel: {
+    position: 'absolute',
+    right: 3,
+    top: 3,
+    // flex: 1,
+    // justifyContent: 'flex-end',
+    // alignSelf: 'flex-start'
+}
 })
 
 export default styles;

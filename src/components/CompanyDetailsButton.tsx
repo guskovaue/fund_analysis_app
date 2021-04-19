@@ -1,17 +1,20 @@
 import React from 'react';
-import { TouchableOpacity, Text, Image } from 'react-native';
+import { TouchableOpacity, Text, Image, ImageSourcePropType } from 'react-native';
 import styles from '../styles';
 import { useDispatch } from 'react-redux';
 import { createDeleteCompanyAction } from '../store/actions';
+import { CANCEL } from '../images'
 
 export default ({ 
   onPress, 
-  buttonLabel='Add new company', 
+  buttonLabel='Add new company',
+  buttonImage,
   showCancelButton=true 
 }: 
 { 
   onPress: () => void; 
   buttonLabel?: string;
+  buttonImage?: ImageSourcePropType;
   showCancelButton?: boolean
 }): React.ReactElement => {
   const dispatch = useDispatch();
@@ -23,11 +26,18 @@ export default ({
         style={styles.cancel}
       >
         <Image
-          source={require('../images/cancel.png')}
+          source={CANCEL}
         />
       </TouchableOpacity>
       }
-      <Text style={styles.companyButtonText}>{buttonLabel}</Text>
+      { buttonImage ? 
+        <Image
+          style={styles.plus}
+          source={buttonImage}
+        />: 
+        <Text 
+          style={styles.companyButtonText}>{buttonLabel}
+        </Text> }
     </TouchableOpacity>
   )
 };

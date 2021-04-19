@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     width: '50%',
     backgroundColor: "#009688",
     justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 2,
     borderWidth: 1,
     borderColor: '#fff',
@@ -54,10 +55,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 3,
     top: 3,
-    // flex: 1,
-    // justifyContent: 'flex-end',
-    // alignSelf: 'flex-start'
-}
+  },
+  plus: {
+    height: 18,
+    width: 18,
+  }
 })
 
 export default styles;

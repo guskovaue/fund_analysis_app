@@ -5,6 +5,7 @@ import styles from '../styles';
 import CompanyDetailsButton from '../components/CompanyDetailsButton';
 import { MyCompanyScreenStackNavigationProp, State } from '../types';
 import { COMPANY_DETAILS, COMPANY_INFO } from '../constants';
+import { PLUS } from '../images'
 
 export default ({ navigation }: { navigation: MyCompanyScreenStackNavigationProp }): React.ReactElement => {
   const companiesNames: string[] = useSelector((state: State ) => state.companiesNames );
@@ -25,6 +26,7 @@ export default ({ navigation }: { navigation: MyCompanyScreenStackNavigationProp
     ))}
     <CompanyDetailsButton
       showCancelButton={false}
+      buttonImage={PLUS}
       onPress={() => navigation.navigate(
         COMPANY_DETAILS, 
         { screen: COMPANY_INFO, 

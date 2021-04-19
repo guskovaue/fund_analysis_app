@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import { View, Text, TextInput } from 'react-native';
 import styles from '../styles';
 import SaveButton from '../components/Button';
-import { CompanyDetails2ScreenTabNavigationProp, CompaynyDetails2RouteProp } from '../types';
+import { CompaynyDetails2RouteProp } from '../types';
 import { MY_COMPANIES } from '../constants';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
-export default ({
-  navigation,
-  route: { params: { companyName } }
-}: {
-  navigation: CompanyDetails2ScreenTabNavigationProp,
-  route: CompaynyDetails2RouteProp
-}): React.ReactElement => {
+export default (): React.ReactElement => {
+  const navigation = useNavigation();
+  const route = useRoute<CompaynyDetails2RouteProp>();
+  const companyName = route.params.companyName;
+
   const [text, onChangeText] = useState(companyName);
 
   return (

@@ -2,19 +2,17 @@ import React, { useState } from 'react';
 import { View, Text, TextInput } from 'react-native';
 import styles from '../styles';
 import SaveButton from '../components/Button';
-import { CompanyDetailsScreenCompositeNavigationProp, CompanyDetailsRouteProp } from '../types';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { CompanyDetailsRouteProp } from '../types';
 import { createAddNewCompanyAction } from '../store/actions';
 import { useDispatch } from 'react-redux';
 import { MY_COMPANIES } from '../constants';
 
-export default ({
-  navigation,
-  route
-}: {
-  navigation: CompanyDetailsScreenCompositeNavigationProp,
-  route: CompanyDetailsRouteProp
-}): React.ReactElement => {
-  const companyName = route.params.companyName
+export default (): React.ReactElement => {
+  const navigation = useNavigation();
+  const route = useRoute<CompanyDetailsRouteProp>();
+  const companyName = route.params.companyName;
+
   const dispatch = useDispatch();
   const [text, onChangeText] = useState(companyName);
 

@@ -1,14 +1,16 @@
 import React from 'react';
 import { View } from 'react-native';
 import { useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 import styles from '../styles';
 import CompanyDetailsButton from '../components/CompanyDetailsButton';
-import { MyCompanyScreenStackNavigationProp, State } from '../types';
+import { State } from '../types';
 import { COMPANY_DETAILS, COMPANY_INFO } from '../constants';
 import { PLUS } from '../images'
 
-export default ({ navigation }: { navigation: MyCompanyScreenStackNavigationProp }): React.ReactElement => {
+export default (): React.ReactElement => {
   const companiesNames: string[] = useSelector((state: State) => state.companiesNames);
+  const navigation = useNavigation();
 
   return (
     <View style={styles.row}>

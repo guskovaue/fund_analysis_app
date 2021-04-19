@@ -7,28 +7,28 @@ import { createAddNewCompanyAction } from '../store/actions';
 import { useDispatch } from 'react-redux';
 import { MY_COMPANIES } from '../constants';
 
-export default ({ 
-  navigation, 
+export default ({
+  navigation,
   route
-}: { 
-  navigation: CompanyDetailsScreenCompositeNavigationProp, 
+}: {
+  navigation: CompanyDetailsScreenCompositeNavigationProp,
   route: CompanyDetailsRouteProp
 }): React.ReactElement => {
   const companyName = route.params.companyName
   const dispatch = useDispatch();
-  const [ text, onChangeText ] = useState(companyName);
+  const [text, onChangeText] = useState(companyName);
 
   return (
     <View style={{ flex: 1 }}>
-      <Text style={ styles.titleText }>Company name</Text>
+      <Text style={styles.titleText}>Company name</Text>
       <TextInput
-        style={ styles.input }
-        value={ text }
-        onChangeText={ onChangeText }
-        placeholder={ companyName || 'Add company name' }
+        style={styles.input}
+        value={text}
+        onChangeText={onChangeText}
+        placeholder={companyName || 'Add company name'}
       />
       <View style={{ flex: 1 }}></View>
-      <SaveButton 
+      <SaveButton
         onPress={() => dispatch(createAddNewCompanyAction(text)) && navigation.navigate(MY_COMPANIES)}
         title='Save'
       />

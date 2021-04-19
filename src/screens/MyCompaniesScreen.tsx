@@ -8,32 +8,34 @@ import { COMPANY_DETAILS, COMPANY_INFO } from '../constants';
 import { PLUS } from '../images'
 
 export default ({ navigation }: { navigation: MyCompanyScreenStackNavigationProp }): React.ReactElement => {
-  const companiesNames: string[] = useSelector((state: State ) => state.companiesNames );
+  const companiesNames: string[] = useSelector((state: State) => state.companiesNames);
 
   return (
-  <View style={styles.row}>
-    { companiesNames.map((company) => (
+    <View style={styles.row}>
+      { companiesNames.map((company) => (
+        <CompanyDetailsButton
+          buttonLabel={company}
+          onPress={() => navigation.navigate(
+            COMPANY_DETAILS,
+            {
+              screen: COMPANY_INFO,
+              params:
+                { companyName: company }
+            }
+          )}
+        />
+      ))}
       <CompanyDetailsButton
-      buttonLabel={company}
-      onPress={ () => navigation.navigate(
-        COMPANY_DETAILS, 
-        { screen: COMPANY_INFO, 
-          params: 
-          { companyName: company }
-        }
-      )}
-    />
-    ))}
-    <CompanyDetailsButton
-      showCancelButton={false}
-      buttonImage={PLUS}
-      onPress={() => navigation.navigate(
-        COMPANY_DETAILS, 
-        { screen: COMPANY_INFO, 
-          params: {}
-        }
-      )}
-    />
-  </View>
+        showCancelButton={false}
+        buttonImage={PLUS}
+        onPress={() => navigation.navigate(
+          COMPANY_DETAILS,
+          {
+            screen: COMPANY_INFO,
+            params: {}
+          }
+        )}
+      />
+    </View>
   )
 }

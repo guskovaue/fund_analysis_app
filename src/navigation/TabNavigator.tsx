@@ -11,10 +11,10 @@ const TabNavigator = (props): React.ReactElement => {
   const params = props.route.params;
   console.log('params', params)
   return (
-  <Navigator>
-    <Screen name={COMPANY_INFO} component={CompanyDetailsScreen} initialParams={params}/>
-    <Screen name={COMPANY_PERFORMANCE} component={CompanyDetails2Screen} initialParams={params}/>
-  </Navigator>
+    <Navigator>
+      <Screen name={COMPANY_INFO} component={CompanyDetailsScreen} initialParams={params} />
+      <Screen name={COMPANY_PERFORMANCE} component={CompanyDetails2Screen} initialParams={params} />
+    </Navigator>
   )
 };
 

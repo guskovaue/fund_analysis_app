@@ -9,7 +9,7 @@ import { COMPANY_DETAILS, COMPANY_INFO } from '../constants';
 import { PLUS } from '../images'
 import { createDeleteCompanyAction } from '../store/actions';
 import { useDispatch } from 'react-redux';
-import { DELETE_COMPANY } from '../constants';
+import { SUCCESS } from '../constants';
 
 export default (): React.ReactElement => {
   const companiesNames: string[] = useSelector((state: State) => state.companiesNames);
@@ -22,7 +22,8 @@ export default (): React.ReactElement => {
         <CompanyDetailsButton
           buttonLabel={company}
           onPressCancel={() =>
-            dispatch(createDeleteCompanyAction(company)) && navigation.navigate(DELETE_COMPANY, { companyName: company })}
+            dispatch(createDeleteCompanyAction(company)) &&
+            navigation.navigate(SUCCESS, { text: `Company ${company} is deleted` })}
           onPress={() => navigation.navigate(
             COMPANY_DETAILS,
             {

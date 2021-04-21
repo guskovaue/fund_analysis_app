@@ -1,4 +1,4 @@
-import { COMPANY_INFO, DELETE_COMPANY } from '../constants';
+import { COMPANY_INFO, DELETE_COMPANY, FAIL_ADD_NEW_COMPANY } from '../constants';
 
 export const createAddNewCompanyAction = (companyName: string): { type: string; companyName: string } => {
   return {

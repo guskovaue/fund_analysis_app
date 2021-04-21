@@ -1,6 +1,6 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import { INITIAL_STATE } from './store/reducers';
-import { COMPANY_INFO, COMPANY_PERFORMANCE, MY_COMPANIES, COMPANY_DETAILS, SUCCESS } from './constants';
+import { FAIL_ADD_NEW_COMPANY, COMPANY_INFO, COMPANY_PERFORMANCE, MY_COMPANIES, COMPANY_DETAILS, SUCCESS } from './constants';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { CompositeNavigationProp, RouteProp } from '@react-navigation/native';
 
@@ -11,6 +11,7 @@ export type ParamList = {
   [COMPANY_DETAILS]?: { screen: string; params: { companyName?: string } };
   [COMPANY_PERFORMANCE]?: { companyName?: string };
   [SUCCESS]?: { text?: string };
+  [FAIL_ADD_NEW_COMPANY]?: { companyName?: string };
 }
 
 export type MyCompanyScreenStackNavigationProp = StackNavigationProp<ParamList, typeof MY_COMPANIES>;
@@ -25,7 +26,3 @@ export type CompaynyDetails2RouteProp = RouteProp<ParamList, typeof COMPANY_PERF
 export type SuccessRouteProp = RouteProp<ParamList, typeof SUCCESS>;
 
 export type State = typeof INITIAL_STATE;
-export type Action = {
-  type: string
-  companyName: string
-}

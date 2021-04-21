@@ -6,7 +6,7 @@ export default (): React.ReactElement => {
     return (
         <View>
             <Image source={ROCKET} />
-            <Text>'Oops, something went wrong!'</Text>
+            <Text>Oops, something went wrong!</Text>
         </View>
     )
 }

@@ -1,6 +1,6 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import { INITIAL_STATE } from './store/reducers';
-import { COMPANY_INFO, COMPANY_PERFORMANCE, MY_COMPANIES, COMPANY_DETAILS } from './constants';
+import { COMPANY_INFO, COMPANY_PERFORMANCE, MY_COMPANIES, COMPANY_DETAILS, DELETE_COMPANY } from './constants';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { CompositeNavigationProp, RouteProp } from '@react-navigation/native';
 
@@ -10,6 +10,7 @@ export type ParamList = {
   [COMPANY_INFO]?: { companyName?: string };
   [COMPANY_DETAILS]?: { screen: string; params: { companyName?: string } };
   [COMPANY_PERFORMANCE]?: { companyName?: string };
+  [DELETE_COMPANY]?: { companyName?: string };
 }
 
 export type MyCompanyScreenStackNavigationProp = StackNavigationProp<ParamList, typeof MY_COMPANIES>;
@@ -21,6 +22,7 @@ export type CompanyDetails2ScreenTabNavigationProp = BottomTabNavigationProp<Par
 
 export type CompanyDetailsRouteProp = RouteProp<ParamList, typeof COMPANY_INFO>;
 export type CompaynyDetails2RouteProp = RouteProp<ParamList, typeof COMPANY_PERFORMANCE>;
+export type CompanyDeletedRouteProp = RouteProp<ParamList, typeof DELETE_COMPANY>;
 
 export type State = typeof INITIAL_STATE;
 export type Action = {

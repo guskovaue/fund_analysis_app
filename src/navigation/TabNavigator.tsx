@@ -4,12 +4,14 @@ import { ParamList } from '../types';
 import { COMPANY_PERFORMANCE, COMPANY_INFO } from '../constants';
 import CompanyDetails2Screen from '../screens/CompanyDetails2Screen';
 import CompanyDetailsScreen from '../screens/CompanyDetailsScreen';
+import { useRoute } from '@react-navigation/native';
 
 const { Navigator, Screen } = createBottomTabNavigator<ParamList>();
 
-const TabNavigator = (props): React.ReactElement => {
-  const params = props.route.params;
-  console.log('params', params)
+const TabNavigator = (): React.ReactElement => {
+  const route = useRoute();
+  const params = route.params;
+
   return (
     <Navigator>
       <Screen name={COMPANY_INFO} component={CompanyDetailsScreen} initialParams={params} />

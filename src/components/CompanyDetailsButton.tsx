@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Text, Image, ImageSourcePropType } from 'react-native';
 import styles from '../styles';
-import { DELETE } from '../images'
+import { CLOSE } from '../images'
 
 export default ({
   onPress,
@@ -24,19 +24,13 @@ export default ({
         onPress={onPressCancel}
         style={styles.cancel}
       >
-        <Image
-          source={DELETE}
-        />
+        <Image source={CLOSE} />
       </TouchableOpacity>
       }
       { buttonImage ?
-        <Image
-          style={styles.plus}
-          source={buttonImage}
-        /> :
-        <Text
-          style={styles.companyButtonText}>{buttonLabel}
-        </Text>}
+        <Image style={styles.plus} source={buttonImage} /> :
+        <Text style={styles.companyButtonText}>{buttonLabel} </Text>
+      }
     </TouchableOpacity>
   )
 };

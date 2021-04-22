@@ -3,4 +3,4 @@ export const CANCEL = require('./cancel.png');
 export const PLUS = require('./plus.png');
 export const ROCKET = require('./rocket-ship.png');
 export const SUCCESS = require('./check.png');
-export const DELETE = require('./close.png');
+export const CLOSE = require('./close.png');

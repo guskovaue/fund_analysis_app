@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput } from 'react-native';
 import styles from '../styles';
-import SaveButton from '../components/Button';
+import SaveButton from '../components/SaveButton';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { CompanyDetailsRouteProp } from '../types';
 import { createAddNewCompanyAction } from '../store/actions';
@@ -17,7 +17,6 @@ export default (): React.ReactElement => {
   const dispatch = useDispatch();
   const [text, onChangeText] = useState(companyName);
   const canAddCompany = !companiesNames.includes(text);
-  console.log('companiesNames', companiesNames)
 
   const onPress = () => canAddCompany ?
     dispatch(createAddNewCompanyAction(text)) && navigation.navigate(MY_COMPANIES) :

@@ -2,8 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { ParamList } from '../types';
 import { COMPANY_PERFORMANCE, COMPANY_INFO } from '../constants';
-import CompanyDetails2Screen from '../screens/CompanyDetails2Screen';
-import CompanyDetailsScreen from '../screens/CompanyDetailsScreen';
+import { CompanyDetails2Screen, CompanyDetailsScreen } from '../screens';
 import { useRoute } from '@react-navigation/native';
 
 const { Navigator, Screen } = createBottomTabNavigator<ParamList>();

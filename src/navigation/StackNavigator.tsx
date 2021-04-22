@@ -1,9 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { ParamList } from '../types';
-import MyCompaniesScreen from '../screens/MyCompaniesScreen';
-import SuccessScreen from '../screens/SuccessScreen';
-import ErrorScreen from '../screens/ErrorScreen';
+import { ErrorScreen, MyCompaniesScreen, SuccessScreen } from '../screens';
 import { FAIL_ADD_NEW_COMPANY, MY_COMPANIES, COMPANY_DETAILS, SUCCESS } from '../constants';
 import { TabNavigator } from './TabNavigator'
 

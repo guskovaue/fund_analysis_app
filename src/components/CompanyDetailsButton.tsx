@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Text, Image, ImageSourcePropType } from 'react-native';
 import styles from '../styles';
-import { CLOSE } from '../images'
+import { DELETE } from '../images'
 
 export default ({
   onPress,
@@ -24,7 +24,7 @@ export default ({
         onPress={onPressCancel}
         style={styles.cancel}
       >
-        <Image source={CLOSE} />
+        <Image source={DELETE} />
       </TouchableOpacity>
       }
       { buttonImage ?

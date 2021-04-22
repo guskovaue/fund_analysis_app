@@ -6,19 +6,18 @@ import reducer from './store/reducers';
 import { Provider } from 'react-redux';
 import { StackNavigator } from './navigation/StackNavigator';
 import { persistStore, persistReducer } from 'redux-persist';
-// import storage from 'redux-persist/lib/storage';
 import { PersistGate } from 'redux-persist/integration/react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-}
+};
 
 const persistedReducer = persistReducer(persistConfig, reducer);
 
-const store = createStore(persistedReducer)
-const persistor = persistStore(store)
+export const store = createStore(persistedReducer);
+const persistor = persistStore(store);
 
 const App: React.FunctionComponent = () => {
   return (

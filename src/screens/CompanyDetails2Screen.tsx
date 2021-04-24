@@ -15,7 +15,7 @@ export default (): React.ReactElement => {
 
   return (
     <View style={{ flex: 1 }}>
-      <Text style={styles.titleText}>Company name second page</Text>
+      <Text style={styles.inputText}>Company name second page</Text>
       <TextInput
         style={styles.input}
         value={text}

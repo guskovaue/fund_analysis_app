@@ -20,7 +20,7 @@ export default ({
   const [onLongPressActivated, setOnLongPressActivated] = useState(false);
 
   return (
-    <TouchableOpacity onLongPress={() => setOnLongPressActivated(true)} onPress={onPress} style={styles.addNewCompanyButton}>
+    <TouchableOpacity onLongPress={() => setOnLongPressActivated(true)} onPress={onPress} style={styles.companyDetailsButton}>
       { onLongPressActivated && showCancelButton && <TouchableOpacity
         onPress={onPressDelete}
         style={styles.cancel}
@@ -30,7 +30,7 @@ export default ({
       }
       { buttonImage ?
         <Image style={styles.plus} source={buttonImage} /> :
-        <Text style={styles.companyButtonText}>{buttonLabel} </Text>
+        <Text style={styles.companyDetailsButtonText}>{buttonLabel} </Text>
       }
     </TouchableOpacity>
   )

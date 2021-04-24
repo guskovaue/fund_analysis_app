@@ -8,8 +8,11 @@ import { TabNavigator } from './TabNavigator'
 const { Navigator, Screen } = createStackNavigator<ParamList>();
 
 const StackNavigator = (): React.ReactElement => (
-  <Navigator>
-    <Screen name={MY_COMPANIES} component={MyCompaniesScreen} />
+  <Navigator screenOptions={{ headerStyle: { backgroundColor: 'black' } }}>
+    <Screen name={MY_COMPANIES} component={MyCompaniesScreen} options={{
+      title: 'MY COMPANIES',
+      headerTintColor: 'pink'
+    }} />
     <Screen name={COMPANY_DETAILS} component={TabNavigator} />
     <Screen name={SUCCESS} component={SuccessScreen} />
     <Screen name={FAIL_ADD_NEW_COMPANY} component={ErrorScreen} />

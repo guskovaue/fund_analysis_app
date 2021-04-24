@@ -17,7 +17,7 @@ export default (): React.ReactElement => {
   const dispatch = useDispatch();
 
   return (
-    <View style={styles.row}>
+    <View style={styles.myCompaniesScreen}>
       { companiesNames.map((company) => (
         <CompanyDetailsButton
           buttonLabel={company}

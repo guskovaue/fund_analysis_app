@@ -23,8 +23,8 @@ export default (): React.ReactElement => {
     navigation.navigate(FAIL_ADD_NEW_COMPANY, { companyName });
 
   return (
-    <View style={{ flex: 1 }}>
-      <Text style={styles.titleText}>Company name</Text>
+    <View style={styles.companyDetailsScreen}>
+      <Text style={styles.inputText}>Company name</Text>
       <TextInput
         style={styles.input}
         value={text}

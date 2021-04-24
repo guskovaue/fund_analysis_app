@@ -1,27 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TouchableOpacity, Text, Image, ImageSourcePropType } from 'react-native';
 import styles from '../styles';
 import { DELETE } from '../images'
 
 export default ({
   onPress,
-  onPressCancel,
+  onPressDelete,
   buttonLabel = 'Add new company',
   buttonImage,
   showCancelButton = true
 }:
   {
     onPress: () => void;
-    onPressCancel?: () => void;
+    onPressDelete?: () => void;
     buttonLabel?: string;
     buttonImage?: ImageSourcePropType;
     showCancelButton?: boolean
   }): React.ReactElement => {
+  const [onLongPressActivated, setOnLongPressActivated] = useState(false);
 
   return (
-    <TouchableOpacity onPress={onPress} style={styles.addNewCompanyButton}>
-      { showCancelButton && <TouchableOpacity
-        onPress={onPressCancel}
+    <TouchableOpacity onLongPress={() => setOnLongPressActivated(true)} onPress={onPress} style={styles.addNewCompanyButton}>
+      { onLongPressActivated && showCancelButton && <TouchableOpacity
+        onPress={onPressDelete}
         style={styles.cancel}
       >
         <Image source={DELETE} />

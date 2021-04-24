@@ -21,7 +21,7 @@ export default (): React.ReactElement => {
       { companiesNames.map((company) => (
         <CompanyDetailsButton
           buttonLabel={company}
-          onPressCancel={() =>
+          onPressDelete={() =>
             dispatch(createDeleteCompanyAction(company)) &&
             navigation.navigate(SUCCESS, { text: `Company ${company} is deleted` })}
           onPress={() => navigation.navigate(

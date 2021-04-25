@@ -24,7 +24,7 @@ export default (): React.ReactElement => {
 
   return (
     <View style={styles.companyDetailsScreen}>
-      <Text style={styles.inputText}>Company name</Text>
+      <Text style={styles.titleText}>Company name</Text>
       <TextInput
         style={styles.input}
         value={text}

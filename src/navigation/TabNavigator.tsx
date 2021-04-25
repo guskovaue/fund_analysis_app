@@ -12,10 +12,26 @@ const TabNavigator = (): React.ReactElement => {
   const params = route.params;
 
   return (
-    <Navigator>
-      <Screen name={COMPANY_INFO} component={CompanyDetailsScreen} initialParams={params} />
-      <Screen name={COMPANY_PERFORMANCE} component={CompanyDetails2Screen} initialParams={params} />
-    </Navigator>
+    <Navigator tabBarOptions={{
+      activeTintColor: 'red',
+      inactiveTintColor: 'pink',
+      style: {
+        backgroundColor: 'black',
+      }
+    }}>
+      <Screen
+        name={COMPANY_INFO}
+        component={CompanyDetailsScreen}
+        initialParams={params}
+        options={{ title: 'INFO' }}
+      />
+      <Screen
+        name={COMPANY_PERFORMANCE}
+        component={CompanyDetails2Screen}
+        initialParams={params}
+        options={{ title: 'PERFORMANCE' }}
+      />
+    </Navigator >
   )
 };
 

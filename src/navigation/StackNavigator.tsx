@@ -3,17 +3,37 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { ParamList } from '../types';
 import { ErrorScreen, MyCompaniesScreen, SuccessScreen } from '../screens';
 import { FAIL_ADD_NEW_COMPANY, MY_COMPANIES, COMPANY_DETAILS, SUCCESS } from '../constants';
-import { TabNavigator } from './TabNavigator'
+import { TabNavigator } from './TabNavigator';
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+import { COMPANY_PERFORMANCE, COMPANY_INFO } from '../constants';
+
+const getHeaderTitle = (route) => {
+  const routeName = getFocusedRouteNameFromRoute(route) ?? 'INFO';
+  switch (routeName) {
+    case COMPANY_INFO:
+      return 'INFO';
+    case COMPANY_PERFORMANCE:
+      return 'PERFORMANCE';
+  }
+}
 
 const { Navigator, Screen } = createStackNavigator<ParamList>();
 
 const StackNavigator = (): React.ReactElement => (
   <Navigator screenOptions={{ headerStyle: { backgroundColor: 'black' } }}>
-    <Screen name={MY_COMPANIES} component={MyCompaniesScreen} options={{
-      title: 'MY COMPANIES',
-      headerTintColor: 'pink'
-    }} />
-    <Screen name={COMPANY_DETAILS} component={TabNavigator} />
+    <Screen
+      name={MY_COMPANIES}
+      component={MyCompaniesScreen}
+      options={{
+        title: 'COLLECTION',
+        headerTintColor: 'pink'
+      }}
+    />
+    <Screen
+      name={COMPANY_DETAILS}
+      component={TabNavigator}
+      options={({ route }) => ({ headerTitle: getHeaderTitle(route), headerTintColor: 'pink' })}
+    />
     <Screen name={SUCCESS} component={SuccessScreen} />
     <Screen name={FAIL_ADD_NEW_COMPANY} component={ErrorScreen} />
   </Navigator>

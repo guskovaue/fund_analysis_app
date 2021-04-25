@@ -48,8 +48,10 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     borderColor: "pink",
+    color: "pink",
+    fontSize: 18
   },
-  inputText: {
+  titleText: {
     fontSize: 16,
     color: "pink",
     fontWeight: "bold",

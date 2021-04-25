@@ -23,7 +23,7 @@ export default ({
     <TouchableOpacity onLongPress={() => setOnLongPressActivated(true)} onPress={onPress} style={styles.companyDetailsButton}>
       { onLongPressActivated && showCancelButton && <TouchableOpacity
         onPress={onPressDelete}
-        style={styles.cancel}
+        style={styles.delete}
       >
         <Image source={DELETE} />
       </TouchableOpacity>

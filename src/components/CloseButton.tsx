@@ -9,8 +9,8 @@ export default (): React.ReactElement => {
     const navigation = useNavigation();
 
     return (
-        <TouchableOpacity onPress={() => navigation.navigate(MY_COMPANIES)} style={styles.cancel}>
-            <Image source={CLOSE} />
+        <TouchableOpacity onPress={() => navigation.navigate(MY_COMPANIES)} style={styles.delete}>
+            <Image source={CLOSE} style={styles.closeButtonImage} />
         </TouchableOpacity>
     )
 };

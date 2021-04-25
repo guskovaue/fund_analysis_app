@@ -14,7 +14,7 @@ export default (): React.ReactElement => {
   const [text, onChangeText] = useState(companyName);
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.companyDetailsScreen}>
       <Text style={styles.titleText}>Company name second page</Text>
       <TextInput
         style={styles.input}

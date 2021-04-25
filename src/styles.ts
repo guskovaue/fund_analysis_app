@@ -1,12 +1,34 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  errorScreen: {
+    flex: 1,
+    backgroundColor: 'black',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  errorScreenText: {
+    color: 'pink',
+    fontSize: 18
+  },
+  errorScreenRocketImage: {
+    position: 'absolute',
+    left: 3,
+    top: 3
+  },
+  closeButtonImage: {
+    tintColor: 'pink'
+  },
   myCompaniesScreen: {
     flex: 1,
     flexDirection: "row",
     flexWrap: "wrap",
     height: '10%',
     backgroundColor: 'black',
+  },
+  companyDetailsScreen: {
+    flex: 1,
+    backgroundColor: 'black'
   },
   companyDetailsButton: {
     height: '20%',
@@ -16,7 +38,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 2,
     borderWidth: 1,
-    // borderColor: 'black',
   },
   companyDetailsButtonText: {
     fontSize: 18,
@@ -24,10 +45,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     alignSelf: "center",
     textTransform: "uppercase",
-  },
-  companyDetailsScreen: {
-    flex: 1,
-    backgroundColor: 'black'
   },
   saveButton: {
     justifyContent: 'center',
@@ -59,7 +76,7 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     margin: 14,
   },
-  cancel: {
+  delete: {
     position: 'absolute',
     right: 3,
     top: 3,

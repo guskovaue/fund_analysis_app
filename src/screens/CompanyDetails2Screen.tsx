@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput } from 'react-native';
 import styles from '../styles';
-import SaveButton from '../components/SaveButton';
+import SaveButton from '../components/SaveButton/SaveButton';
 import { CompaynyDetails2RouteProp } from '../types';
 import { MY_COMPANIES } from '../constants';
 import { useNavigation, useRoute } from '@react-navigation/native';

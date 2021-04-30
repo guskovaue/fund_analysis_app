@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TouchableOpacity, Text, Image, ImageSourcePropType } from 'react-native';
-import styles from '../styles';
-import { DELETE } from '../images'
+import styles from '../../styles';
+import { DELETE } from '../../images'
 
 export default ({
   onPress,

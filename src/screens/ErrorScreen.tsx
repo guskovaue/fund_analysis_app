@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 import { ROCKET } from '../images';
-import CloseButton from '../components/CloseButton';
+import CloseButton from '../components/CloseButton/CloseButton';
 import styles from '../styles';
 
 export default (): React.ReactElement => {

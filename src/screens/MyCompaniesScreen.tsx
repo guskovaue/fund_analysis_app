@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import styles from '../styles';
-import CompanyDetailsButton from '../components/CompanyDetailsButton';
+import CompanyDetailsButton from '../components/CompanyDetailsButton/CompanyDetailsButton';
 import { State } from '../types';
 import { COMPANY_DETAILS, COMPANY_INFO } from '../constants';
 import { PLUS } from '../images'

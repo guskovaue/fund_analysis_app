@@ -18,6 +18,7 @@
     "@react-navigation/bottom-tabs": "^5.11.9",
     "@react-navigation/native": "^5.9.3",
     "@react-navigation/stack": "^5.14.3",
+    "@storybook/react-native": "^5.3.25",
     "@types/node": "^14.14.37",
     "@types/react-dom": "^17.0.3",
     "@types/react-native": "^0.64.2",
@@ -66,7 +67,10 @@
   },
   "config": {
     "react-native-storybook-loader": {
-      "searchDir": ["./src", "./packages"],
+      "searchDir": [
+        "./src",
+        "./packages"
+      ],
       "pattern": "**/*.stories.tsx",
       "outputFile": "./storybook/storyLoader.js"
     }

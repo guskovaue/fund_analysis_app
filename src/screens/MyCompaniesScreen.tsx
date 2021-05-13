@@ -23,7 +23,8 @@ export default (): React.ReactElement => {
           buttonLabel={company}
           onPressDelete={() =>
             dispatch(createDeleteCompanyAction(company)) &&
-            navigation.navigate(SUCCESS, { text: `Company ${company} is deleted` })}
+            navigation.navigate(SUCCESS, { text: `Company ${company} is deleted` })
+          }
           onPress={() => navigation.navigate(
             COMPANY_DETAILS,
             {

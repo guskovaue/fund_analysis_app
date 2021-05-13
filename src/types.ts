@@ -9,7 +9,7 @@ export type ParamList = {
   [MY_COMPANIES]?: undefined;
   [COMPANY_INFO]?: { companyName?: string };
   [COMPANY_DETAILS]?: { screen: string; params: { companyName?: string } };
-  [COMPANY_PERFORMANCE]?: { companyName?: string };
+  [COMPANY_PERFORMANCE]?: { screen: string; params: { companyName?: string } };
   [SUCCESS]?: { text?: string };
   [FAIL_ADD_NEW_COMPANY]?: { companyName?: string };
 }

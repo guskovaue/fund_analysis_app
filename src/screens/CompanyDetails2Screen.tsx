@@ -6,11 +6,12 @@ import SaveButton from '../components/SaveButton/SaveButton';
 import { CompaynyDetails2RouteProp } from '../types';
 import { MY_COMPANIES } from '../constants';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { fetchCompanyOverview } from '../store/companyOverviewSlice';
+import { fetchCompanyOverview } from '../store/thunks';
 import { State } from '../types';
 
 export default (): React.ReactElement => {
   const companyOverview = useSelector((state: State) => state.companyOverview);
+  const isLoading = useSelector((state: State) => state.loading);
   const navigation = useNavigation();
   const route = useRoute<CompaynyDetails2RouteProp>();
   const companyName = route.params.params.companyName;
@@ -19,14 +20,11 @@ export default (): React.ReactElement => {
   const [text, onChangeText] = useState(companyName);
 
   useEffect(() => {
-    // const response = await axios.get(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${companyName}&apikey=demo`)
-    // if (status === 'idle') {
-    //   dispatch(fetchCompanyOverview())
-    // }
-    dispatch(fetchCompanyOverview())
+    if (!isLoading) {
+      dispatch(fetchCompanyOverview(companyName))
+    }
   }, [companyName])
-
-  console.log('companyOverview', companyOverview);
+  // should I look for isLoading changes. And how if it'll loop my code
 
   return (
     <View style={styles.companyDetailsScreen}>

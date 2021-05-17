@@ -28,7 +28,11 @@ const styles = StyleSheet.create({
   },
   companyDetailsScreen: {
     flex: 1,
-    backgroundColor: 'black'
+    backgroundColor: 'black',
+  },
+  companyDetails2Screen: {
+    flex: 1,
+    backgroundColor: 'black',
   },
   companyDetailsButton: {
     height: '20%',
@@ -76,6 +80,12 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     margin: 14,
   },
+  text: {
+    flex: 1,
+    fontSize: 15,
+    color: "pink",
+    margin: 14,
+  },
   delete: {
     position: 'absolute',
     right: 3,
@@ -84,6 +94,10 @@ const styles = StyleSheet.create({
   plus: {
     height: 18,
     width: 18,
+  },
+  bottomLine: {
+    borderBottomColor: 'pink',
+    borderBottomWidth: 1,
   }
 })
 

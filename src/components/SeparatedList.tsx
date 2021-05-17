@@ -8,6 +8,7 @@ const significantValues = ['DividendDate', 'PERatio', 'EBITDA'];
 export default ({ companyInfo }: { companyInfo: CompanyInfo }): React.ReactElement => {
     console.log('companyInfo', companyInfo)
     const isSignificantValue = (parameterName) => significantValues.includes(parameterName);
+    const tranformParameterName = (parameterName) => parameterName.split(/(?=[A-Z][a-z])/).join(' ');
 
     return (
         <View >
@@ -26,7 +27,7 @@ export default ({ companyInfo }: { companyInfo: CompanyInfo }): React.ReactEleme
                     Object.keys(companyInfo).filter(isSignificantValue).map((parameterName) => (
                         <View>
                             <View style={{ flexDirection: 'row' }}>
-                                <Text style={styles.text}>{parameterName}</Text>
+                                <Text style={styles.text}>{tranformParameterName(parameterName)}</Text>
                                 <Text style={styles.text}>{companyInfo[parameterName]}</Text>
                             </View>
                             <View style={styles.bottomLine} />

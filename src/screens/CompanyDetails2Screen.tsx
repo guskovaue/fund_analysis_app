@@ -29,7 +29,7 @@ export default (): React.ReactElement => {
     "ForwardPE": "13.1926",
     "Industry": "Information Technology Services",
     "MarketCapitalization": "129274904576",
-    "Name": "International Business Machines Corporation",
+    "Name": "International Business Machines Corporation 2",
     "OperatingMarginTTM": "0.1232",
     "PEGRatio": "1.5513",
     "PERatio": "24.2021",
@@ -63,9 +63,6 @@ export default (): React.ReactElement => {
     }
   }, [companyName])
   // should I look for isLoading changes. And how if it'll loop my code
-
-  // const PERatio = companyOverview.PERatio.toString();
-  // const sector = companyOverview.Sector;
 
   return (
     <View style={styles.companyDetails2Screen}>

@@ -9,7 +9,7 @@ import { COMPANY_DETAILS, COMPANY_INFO } from '../constants';
 import { PLUS } from '../images'
 import { createDeleteCompanyAction } from '../store/actions';
 import { useDispatch } from 'react-redux';
-import { SUCCESS } from '../constants';
+import { SUCCESS, NAME_COMPANY_INPUT } from '../constants';
 
 export default (): React.ReactElement => {
   const companiesNames: string[] = useSelector((state: State) => state.companiesNames);
@@ -38,13 +38,7 @@ export default (): React.ReactElement => {
       <CompanyDetailsButton
         showCancelButton={false}
         buttonImage={PLUS}
-        onPress={() => navigation.navigate(
-          COMPANY_DETAILS,
-          {
-            screen: COMPANY_INFO,
-            params: {}
-          }
-        )}
+        onPress={() => navigation.navigate(NAME_COMPANY_INPUT)}
       />
     </View>
   )

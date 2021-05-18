@@ -9,3 +9,4 @@ export const FETCH_COMPANY_OVERVIEW_PENDING = '/stocks/info/fetchCompanyOverview
 export const FETCH_COMPANY_OVERVIEW_REJECTED = '/stocks/info/fetchCompanyOverview/rejected';
 export const MY_COMPANIES = 'My companies';
 export const SUCCESS = 'Success';
+export const NAME_COMPANY_INPUT = 'Input company name'

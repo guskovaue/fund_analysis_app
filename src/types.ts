@@ -1,5 +1,13 @@
 import { StackNavigationProp } from '@react-navigation/stack';
-import { FAIL_ADD_NEW_COMPANY, COMPANY_INFO, COMPANY_PERFORMANCE, MY_COMPANIES, COMPANY_DETAILS, SUCCESS } from './constants';
+import {
+  FAIL_ADD_NEW_COMPANY,
+  COMPANY_INFO,
+  COMPANY_PERFORMANCE,
+  MY_COMPANIES,
+  COMPANY_DETAILS,
+  SUCCESS,
+  NAME_COMPANY_INPUT,
+} from './constants';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { CompositeNavigationProp, RouteProp } from '@react-navigation/native';
 import { store } from './App';
@@ -12,15 +20,19 @@ export type ParamList = {
   [COMPANY_PERFORMANCE]?: { screen: string; params: { companyName?: string } };
   [SUCCESS]?: { text?: string };
   [FAIL_ADD_NEW_COMPANY]?: { companyName?: string };
+  [NAME_COMPANY_INPUT]?: undefined;
 }
 
-export type MyCompanyScreenStackNavigationProp = StackNavigationProp<ParamList, typeof MY_COMPANIES>;
+export type MyCompanyScreenStackNavigationProp = StackNavigationProp<ParamList, typeof NAME_COMPANY_INPUT>;
+export type CompanyNameInputScreenStackNavigationProp = StackNavigationProp<ParamList, typeof MY_COMPANIES>;
+
 export type CompanyDetailsScreenCompositeNavigationProp = CompositeNavigationProp<
   BottomTabNavigationProp<ParamList, typeof COMPANY_INFO>,
   StackNavigationProp<ParamList, typeof COMPANY_DETAILS>
 >
 export type CompanyDetails2ScreenTabNavigationProp = BottomTabNavigationProp<ParamList, typeof COMPANY_PERFORMANCE>;
 
+export type CompanyNameInputRouteProp = RouteProp<ParamList, typeof NAME_COMPANY_INPUT>;
 export type CompanyDetailsRouteProp = RouteProp<ParamList, typeof COMPANY_INFO>;
 export type CompaynyDetails2RouteProp = RouteProp<ParamList, typeof COMPANY_PERFORMANCE>;
 export type SuccessRouteProp = RouteProp<ParamList, typeof SUCCESS>;

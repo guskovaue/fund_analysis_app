@@ -1,8 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { ParamList } from '../types';
-import { ErrorScreen, MyCompaniesScreen, SuccessScreen } from '../screens';
-import { FAIL_ADD_NEW_COMPANY, MY_COMPANIES, COMPANY_DETAILS, SUCCESS } from '../constants';
+import { ErrorScreen, MyCompaniesScreen, SuccessScreen, CompanyNameInputScreen } from '../screens';
+import { FAIL_ADD_NEW_COMPANY, MY_COMPANIES, COMPANY_DETAILS, SUCCESS, NAME_COMPANY_INPUT } from '../constants';
 import { TabNavigator } from './TabNavigator';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { COMPANY_PERFORMANCE, COMPANY_INFO } from '../constants';
@@ -25,7 +25,15 @@ const StackNavigator = (): React.ReactElement => (
       name={MY_COMPANIES}
       component={MyCompaniesScreen}
       options={{
-        title: 'COLLECTION',
+        title: 'Back',
+        headerTintColor: 'pink'
+      }}
+    />
+    <Screen
+      name={NAME_COMPANY_INPUT}
+      component={CompanyNameInputScreen}
+      options={{
+        title: 'Back',
         headerTintColor: 'pink'
       }}
     />

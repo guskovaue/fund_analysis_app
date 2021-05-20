@@ -34,6 +34,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'black',
   },
+  successScreen: {
+    flex: 1,
+    backgroundColor: 'black',
+  },
   companyDetailsButton: {
     height: '20%',
     width: '50%',

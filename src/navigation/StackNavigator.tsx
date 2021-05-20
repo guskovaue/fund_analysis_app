@@ -25,7 +25,7 @@ const StackNavigator = (): React.ReactElement => (
       name={MY_COMPANIES}
       component={MyCompaniesScreen}
       options={{
-        title: 'Back',
+        // title: 'MY COMPANIES',
         headerTintColor: 'pink'
       }}
     />
@@ -33,7 +33,7 @@ const StackNavigator = (): React.ReactElement => (
       name={NAME_COMPANY_INPUT}
       component={CompanyNameInputScreen}
       options={{
-        title: 'Back',
+        title: '',
         headerTintColor: 'pink'
       }}
     />
@@ -42,7 +42,14 @@ const StackNavigator = (): React.ReactElement => (
       component={TabNavigator}
       options={({ route }) => ({ headerTitle: getHeaderTitle(route), headerTintColor: 'pink' })}
     />
-    <Screen name={SUCCESS} component={SuccessScreen} />
+    <Screen
+      name={SUCCESS}
+      component={SuccessScreen}
+      options={{
+        title: '',
+        headerTintColor: 'pink'
+      }}
+    />
     <Screen name={FAIL_ADD_NEW_COMPANY} component={ErrorScreen} />
   </Navigator>
 )

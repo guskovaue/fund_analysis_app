@@ -6,7 +6,6 @@ type CompanyInfo = { Name: string, DividendDate: string, Sector: string, PERatio
 const significantValues = ['DividendDate', 'PERatio', 'EBITDA'];
 
 export default ({ companyInfo }: { companyInfo: CompanyInfo }): React.ReactElement => {
-    console.log('companyInfo', companyInfo)
     const isSignificantValue = (parameterName) => significantValues.includes(parameterName);
     const tranformParameterName = (parameterName) => parameterName.split(/(?=[A-Z][a-z])/).join(' ');
 

@@ -50,7 +50,6 @@ export default (): React.ReactElement => {
     "Symbol": "IBM",
   }
 
-  console.log('companyOverview', companyOverview)
   const isLoading = useSelector((state: State) => state.loading);
   const navigation = useNavigation();
   const route = useRoute<CompaynyDetails2RouteProp>();

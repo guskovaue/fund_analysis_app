@@ -1,5 +1,5 @@
-import React from 'react';
-import { View } from 'react-native';
+import React, { useState } from 'react';
+import { View, TouchableWithoutFeedback, TouchableOpacity, TouchableNativeFeedback } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import styles from '../styles';
@@ -12,34 +12,39 @@ import { useDispatch } from 'react-redux';
 import { SUCCESS, NAME_COMPANY_INPUT } from '../constants';
 
 export default (): React.ReactElement => {
+  const [isEditMode, setIsEditMode] = useState(false);
   const companiesNames: string[] = useSelector((state: State) => state.companiesNames);
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
   return (
-    <View style={styles.myCompaniesScreen}>
-      { companiesNames.map((company) => (
-        <CompanyDetailsButton
-          buttonLabel={company}
-          onPressDelete={() =>
-            dispatch(createDeleteCompanyAction(company)) &&
-            navigation.navigate(SUCCESS, { text: `Company ${company} is deleted` })
-          }
-          onPress={() => navigation.navigate(
-            COMPANY_DETAILS,
-            {
-              screen: COMPANY_INFO,
-              params:
-                { companyName: company }
+    <TouchableWithoutFeedback onPress={() => setIsEditMode(false)}>
+      <View style={styles.myCompaniesScreen}>
+        {companiesNames.map((company) => (
+          <CompanyDetailsButton
+            isEditMode={isEditMode}
+            buttonLabel={company}
+            onLongPress={() => setIsEditMode(true)}
+            onPressDelete={() =>
+              dispatch(createDeleteCompanyAction(company)) &&
+              navigation.navigate(SUCCESS, { text: `Company ${company} is deleted` })
             }
-          )}
+            onPress={() => navigation.navigate(
+              COMPANY_DETAILS,
+              {
+                screen: COMPANY_INFO,
+                params:
+                  { companyName: company }
+              }
+            )}
+          />
+        ))}
+        <CompanyDetailsButton
+          isEditMode={false}
+          buttonImage={PLUS}
+          onPress={() => navigation.navigate(NAME_COMPANY_INPUT)}
         />
-      ))}
-      <CompanyDetailsButton
-        showCancelButton={false}
-        buttonImage={PLUS}
-        onPress={() => navigation.navigate(NAME_COMPANY_INPUT)}
-      />
-    </View>
+      </View>
+    </TouchableWithoutFeedback>
   )
 }

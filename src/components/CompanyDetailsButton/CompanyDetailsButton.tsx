@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import { TouchableOpacity, Text, Image, ImageSourcePropType } from 'react-native';
 import styles from '../../styles';
 import { DELETE } from '../../images'
@@ -8,30 +8,25 @@ export default ({
   onPressDelete,
   buttonLabel = 'Add new company',
   buttonImage,
-  showCancelButton = true
+  isEditMode,
+  onLongPress
 }:
   {
     onPress: () => void;
     onPressDelete?: () => void;
     buttonLabel?: string;
     buttonImage?: ImageSourcePropType;
-    showCancelButton?: boolean
+    isEditMode?: boolean
+    onLongPress?: () => void
   }): React.ReactElement => {
-  const [onLongPressActivated, setOnLongPressActivated] = useState(false);
-
-  const handlePress = useCallback(() => {
-    setOnLongPressActivated(false);
-    onPress();
-  }, [onLongPressActivated, onPress]);
-
   return (
     <TouchableOpacity
-      onLongPress={() => setOnLongPressActivated(true)}
-      onPress={handlePress}
+      onLongPress={onLongPress}
+      onPress={isEditMode ? null : onPress}
+      activeOpacity={isEditMode ? 1 : 0}
       style={styles.companyDetailsButton}
     >
-      { onLongPressActivated &&
-        showCancelButton &&
+      { isEditMode &&
         <TouchableOpacity
           onPress={onPressDelete}
           style={styles.delete}

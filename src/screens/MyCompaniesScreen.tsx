@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TouchableWithoutFeedback, TouchableOpacity, TouchableNativeFeedback } from 'react-native';
+import { View, TouchableWithoutFeedback } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import styles from '../styles';
@@ -40,7 +40,7 @@ export default (): React.ReactElement => {
           />
         ))}
         <CompanyDetailsButton
-          isEditMode={false}
+          isEditMode={isEditMode}
           buttonImage={PLUS}
           onPress={() => navigation.navigate(NAME_COMPANY_INPUT)}
         />

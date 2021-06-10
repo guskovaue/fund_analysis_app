@@ -19,14 +19,17 @@ export default ({
     isEditMode?: boolean
     onLongPress?: () => void
   }): React.ReactElement => {
+  const isAddCompanyButton = !!buttonImage;
+  const showButton = !(isAddCompanyButton && isEditMode);
+
   return (
-    <TouchableOpacity
+    showButton && <TouchableOpacity
       onLongPress={onLongPress}
       onPress={isEditMode ? null : onPress}
       activeOpacity={isEditMode ? 1 : 0}
       style={styles.companyDetailsButton}
     >
-      { isEditMode &&
+      {isEditMode &&
         <TouchableOpacity
           onPress={onPressDelete}
           style={styles.delete}
@@ -34,7 +37,7 @@ export default ({
           <Image source={DELETE} />
         </TouchableOpacity>
       }
-      { buttonImage ?
+      {isAddCompanyButton ?
         <Image style={styles.plus} source={buttonImage} /> :
         <Text style={styles.companyDetailsButtonText}>{buttonLabel} </Text>
       }

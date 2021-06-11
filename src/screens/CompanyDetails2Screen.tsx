@@ -51,7 +51,7 @@ export default (): React.ReactElement => {
   }
 
   const isLoading = useSelector((state: State) => state.loading);
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
   const route = useRoute<CompaynyDetails2RouteProp>();
   const companyName = route.params.params.companyName;
   const dispatch = useDispatch();

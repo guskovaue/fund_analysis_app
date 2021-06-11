@@ -9,6 +9,11 @@ export const fetchCompanyOverview = createAsyncThunk('/stocks/info/fetchCompanyO
         symbol: company,
         apikey: API_KEY,
     }
-    const response = await axios.get(API_URL, { params: data });
+    let response
+    try {
+        response = await axios.get(API_URL, { params: data });
+    } catch {
+        response = { data: {} }
+    }
     return response.data;
 })

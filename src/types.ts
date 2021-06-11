@@ -38,3 +38,5 @@ export type CompaynyDetails2RouteProp = RouteProp<ParamList, typeof COMPANY_PERF
 export type SuccessRouteProp = RouteProp<ParamList, typeof SUCCESS>;
 
 export type State = ReturnType<typeof store.getState>;
+
+export type CompanyInfo = { Name: string, DividendDate: string, Sector: string, PERatio: string, EBITDA: string };

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import styles from '../styles';
+import { CompanyInfo } from '../types';
 
-type CompanyInfo = { Name: string, DividendDate: string, Sector: string, PERatio: string, EBITDA: string };
 const significantValues = ['DividendDate', 'PERatio', 'EBITDA'];
 
 export default ({ companyInfo }: { companyInfo: CompanyInfo }): React.ReactElement => {

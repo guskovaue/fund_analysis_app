@@ -5,14 +5,14 @@ import { ErrorScreen, MyCompaniesScreen, SuccessScreen, CompanyNameInputScreen }
 import { FAIL_ADD_NEW_COMPANY, MY_COMPANIES, COMPANY_DETAILS, SUCCESS, NAME_COMPANY_INPUT } from '../constants';
 import { TabNavigator } from './TabNavigator';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
-import { COMPANY_PERFORMANCE, COMPANY_INFO } from '../constants';
+import { FUNDAMENTAL, TECHNICAL } from '../constants';
 
 const getHeaderTitle = (route) => {
   const routeName = getFocusedRouteNameFromRoute(route) ?? 'INFO';
   switch (routeName) {
-    case COMPANY_INFO:
+    case FUNDAMENTAL:
       return 'INFO';
-    case COMPANY_PERFORMANCE:
+    case TECHNICAL:
       return 'PERFORMANCE';
   }
 }
@@ -25,7 +25,7 @@ const StackNavigator = (): React.ReactElement => (
       name={MY_COMPANIES}
       component={MyCompaniesScreen}
       options={{
-        // title: 'MY COMPANIES',
+        title: ' ',
         headerTintColor: 'pink'
       }}
     />

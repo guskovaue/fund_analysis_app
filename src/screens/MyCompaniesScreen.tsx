@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import styles from '../styles';
 import CompanyDetailsButton from '../components/CompanyDetailsButton/CompanyDetailsButton';
 import { State } from '../types';
-import { COMPANY_DETAILS, COMPANY_INFO } from '../constants';
+import { COMPANY_DETAILS, FUNDAMENTAL } from '../constants';
 import { PLUS } from '../images'
 import { createDeleteCompanyAction } from '../store/actions';
 import { useDispatch } from 'react-redux';
@@ -20,8 +20,8 @@ export default (): React.ReactElement => {
   return (
     <TouchableWithoutFeedback onPress={() => setIsEditMode(false)}>
       <View style={styles.myCompaniesScreen}>
-        {companiesNames.map((company) => (
-          <CompanyDetailsButton
+        {companiesNames.map((company) => {
+          return <CompanyDetailsButton
             isEditMode={isEditMode}
             buttonLabel={company}
             onLongPress={() => setIsEditMode(true)}
@@ -32,13 +32,13 @@ export default (): React.ReactElement => {
             onPress={() => navigation.navigate(
               COMPANY_DETAILS,
               {
-                screen: COMPANY_INFO,
+                screen: FUNDAMENTAL,
                 params:
                   { companyName: company }
               }
             )}
           />
-        ))}
+        })}
         <CompanyDetailsButton
           isEditMode={isEditMode}
           buttonImage={PLUS}

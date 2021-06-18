@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: "black",
     fontWeight: "bold",
-    alignSelf: "center",
+    textAlign: "center",
     textTransform: "uppercase",
   },
   saveButton: {
@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: "black",
     fontWeight: "bold",
+    textAlign: 'center',
     textTransform: "uppercase",
   },
   input: {

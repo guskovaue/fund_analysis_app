@@ -7,16 +7,20 @@ import { createAddNewCompanyAction } from '../store/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { State } from '../types';
 import { FAIL_ADD_NEW_COMPANY, MY_COMPANIES } from '../constants';
+import { fetchCompanyOverview } from '../store/thunks';
 
 export default (): React.ReactElement => {
     const navigation = useNavigation();
     const companiesNames = useSelector((state: State) => state.companiesNames);
     const dispatch = useDispatch();
     const [companyName, onChangeCompanyName] = useState('');
+
     const canAddCompany = !companiesNames.includes(companyName);
 
     const onPress = () => canAddCompany ?
-        dispatch(createAddNewCompanyAction(companyName)) && navigation.navigate(MY_COMPANIES) :
+        dispatch(createAddNewCompanyAction(companyName)) &&
+        dispatch(fetchCompanyOverview(companyName)) &&
+        navigation.navigate(MY_COMPANIES) :
         navigation.navigate(FAIL_ADD_NEW_COMPANY, { companyName });
 
     return (

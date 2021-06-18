@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { ParamList } from '../types';
-import { COMPANY_PERFORMANCE, COMPANY_INFO } from '../constants';
+import { FUNDAMENTAL, TECHNICAL } from '../constants';
 import { CompanyDetails2Screen, CompanyDetailsScreen } from '../screens';
 import { useRoute } from '@react-navigation/native';
 
@@ -20,16 +20,16 @@ const TabNavigator = (): React.ReactElement => {
       }
     }}>
       <Screen
-        name={COMPANY_INFO}
+        name={FUNDAMENTAL}
         component={CompanyDetailsScreen}
         initialParams={params}
-        options={{ title: 'INFO' }}
+        options={{ title: 'FUNDAMENTAL' }}
       />
       <Screen
-        name={COMPANY_PERFORMANCE}
+        name={TECHNICAL}
         component={CompanyDetails2Screen}
         initialParams={params}
-        options={{ title: 'PERFORMANCE' }}
+        options={{ title: 'TECHNICAL' }}
       />
     </Navigator >
   )

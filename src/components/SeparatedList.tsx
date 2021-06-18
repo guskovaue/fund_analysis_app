@@ -3,25 +3,13 @@ import { Text, View } from 'react-native';
 import styles from '../styles';
 import { CompanyInfo } from '../types';
 
-const significantValues = ['DividendDate', 'PERatio', 'EBITDA'];
-
-export default ({ companyInfo }: { companyInfo: CompanyInfo }): React.ReactElement => {
+export default ({ companyInfo, significantValues }: { companyInfo: CompanyInfo; significantValues: string[] }): React.ReactElement => {
     const isSignificantValue = (parameterName) => significantValues.includes(parameterName);
     const tranformParameterName = (parameterName) => parameterName.split(/(?=[A-Z][a-z])/).join(' ');
 
     return (
         <View >
             <View>
-                <View style={{ flexDirection: 'row' }}>
-                    <Text style={styles.text}>{'Name'}</Text>
-                    <Text style={styles.text}>{companyInfo['Name']}</Text>
-                </View>
-                <View style={styles.bottomLine} />
-                <View style={{ flexDirection: "row" }}>
-                    <Text style={styles.text}>{'Sector'}</Text>
-                    <Text style={styles.text}>{companyInfo['Sector']}</Text>
-                </View>
-                <View style={styles.bottomLine} />
                 {
                     Object.keys(companyInfo).filter(isSignificantValue).map((parameterName) => (
                         <View>

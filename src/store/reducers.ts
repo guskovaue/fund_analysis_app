@@ -1,5 +1,5 @@
 import {
-  COMPANY_INFO,
+  FUNDAMENTAL,
   DELETE_COMPANY,
   FETCH_COMPANY_OVERVIEW_FULFILLED,
   FETCH_COMPANY_OVERVIEW_PENDING,
@@ -18,7 +18,7 @@ type State = typeof INITIAL_STATE;
 
 export default (state = INITIAL_STATE, action: AnyAction): State => {
   switch (action.type) {
-    case COMPANY_INFO:
+    case FUNDAMENTAL:
       return {
         ...state,
         companiesNames: [...state.companiesNames, action.companyName],
@@ -26,7 +26,7 @@ export default (state = INITIAL_STATE, action: AnyAction): State => {
     case DELETE_COMPANY:
       return {
         ...state,
-        companiesNames: state.companiesNames.filter(value => value != action.companyName)
+        companiesNames: state.companiesNames.filter(value => value != action.companyName),
       }
     case FETCH_COMPANY_OVERVIEW_PENDING:
       return {
@@ -36,7 +36,7 @@ export default (state = INITIAL_STATE, action: AnyAction): State => {
     case FETCH_COMPANY_OVERVIEW_FULFILLED:
       return {
         ...state,
-        companyOverview: action.payload,
+        companyOverview: { ...state.companyOverview, [action.payload.Symbol]: action.payload },
         loading: false
       };
     case FETCH_COMPANY_OVERVIEW_REJECTED:

@@ -1,7 +1,7 @@
 export const API_KEY = '1ZRFEVRVI8IDMUAD';
 export const COMPANY_DETAILS = 'Company details';
-export const COMPANY_INFO = 'Info';
-export const COMPANY_PERFORMANCE = 'Performance';
+export const TECHNICAL = 'Technical';
+export const FUNDAMENTAL = 'Fundamental';
 export const DELETE_COMPANY = 'Delete company';
 export const FAIL_ADD_NEW_COMPANY = 'Fail to add a new company';
 export const FETCH_COMPANY_OVERVIEW_FULFILLED = '/stocks/info/fetchCompanyOverview/fulfilled';

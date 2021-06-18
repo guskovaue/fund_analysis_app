@@ -1,7 +1,9 @@
 import React from 'react';
 import { TouchableOpacity, Text, Image, ImageSourcePropType } from 'react-native';
 import styles from '../../styles';
-import { DELETE } from '../../images'
+import { DELETE } from '../../images';
+import { useSelector } from 'react-redux';
+import { State } from '../../types';
 
 export default ({
   onPress,

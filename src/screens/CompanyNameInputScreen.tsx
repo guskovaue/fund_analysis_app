@@ -11,11 +11,11 @@ import { fetchCompanyOverview } from '../store/thunks';
 
 export default (): React.ReactElement => {
     const navigation = useNavigation();
-    const companiesNames = useSelector((state: State) => state.companiesNames);
+    const companiesList = useSelector((state: State) => state.companiesNames);
     const dispatch = useDispatch();
     const [companyName, onChangeCompanyName] = useState('');
 
-    const canAddCompany = !companiesNames.includes(companyName);
+    const canAddCompany = !companiesList.includes(companyName);
 
     const onPress = () => canAddCompany ?
         dispatch(createAddNewCompanyAction(companyName)) &&

@@ -5,17 +5,6 @@ import { ErrorScreen, MyCompaniesScreen, SuccessScreen, CompanyNameInputScreen }
 import { FAIL_ADD_NEW_COMPANY, MY_COMPANIES, COMPANY_DETAILS, SUCCESS, NAME_COMPANY_INPUT } from '../constants';
 import { TabNavigator } from './TabNavigator';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
-import { FUNDAMENTAL, TECHNICAL } from '../constants';
-
-const getHeaderTitle = (route) => {
-  const routeName = getFocusedRouteNameFromRoute(route) ?? 'INFO';
-  switch (routeName) {
-    case FUNDAMENTAL:
-      return 'INFO';
-    case TECHNICAL:
-      return 'PERFORMANCE';
-  }
-}
 
 const { Navigator, Screen } = createStackNavigator<ParamList>();
 
@@ -40,7 +29,7 @@ const StackNavigator = (): React.ReactElement => (
     <Screen
       name={COMPANY_DETAILS}
       component={TabNavigator}
-      options={({ route }) => ({ headerTitle: getHeaderTitle(route), headerTintColor: 'pink' })}
+      options={({ route }) => ({ headerTitle: getFocusedRouteNameFromRoute(route), headerTintColor: 'pink' })}
     />
     <Screen
       name={SUCCESS}

@@ -17,12 +17,17 @@ export default (): React.ReactElement => {
 
     const canAddCompany = !companiesList.includes(companyName);
 
-    const onPress = () => canAddCompany ?
-        dispatch(createAddNewCompanyAction(companyName)) &&
-        dispatch(fetchCompanyOverview(companyName)) &&
-        navigation.navigate(MY_COMPANIES) :
-        navigation.navigate(FAIL_ADD_NEW_COMPANY, { companyName });
-
+    const onPress = (inputCompanyName: string) => {
+        if (canAddCompany) {
+            const companyName = inputCompanyName.toUpperCase();
+            dispatch(createAddNewCompanyAction(companyName));
+            dispatch(fetchCompanyOverview(companyName));
+            navigation.navigate(MY_COMPANIES);
+        }
+        else {
+            navigation.navigate(FAIL_ADD_NEW_COMPANY, { companyName });
+        }
+    }
     return (
         <View style={styles.companyDetailsScreen}>
             <Text style={styles.titleText}>Company name</Text>
@@ -34,7 +39,7 @@ export default (): React.ReactElement => {
             />
             <View style={{ flex: 1 }}></View>
             <SaveButton
-                onPress={onPress}
+                onPress={() => onPress(companyName)}
                 title='Save'
             />
         </View>

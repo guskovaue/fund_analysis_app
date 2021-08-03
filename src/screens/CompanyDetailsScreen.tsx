@@ -14,7 +14,8 @@ export default (): React.ReactElement => {
   const companyOverviews = useSelector((state: State) => state.companyOverview) as CompanyInfo;
   const route = useRoute<CompaynyDetails2RouteProp>();
   const companyName = route.params.params.companyName;
-
+  console.log('companyOverviews', companyOverviews);
+  console.log('companyName', companyName);
   return (
     <View style={styles.companyDetails2Screen}>
       <Text style={styles.titleText}> </Text>

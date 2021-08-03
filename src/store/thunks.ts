@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { API_KEY } from '../constants';
 
-export const fetchCompanyOverview = createAsyncThunk('/stocks/info/fetchCompanyOverview', async (company: string) => {
+export const fetchCompanyData = createAsyncThunk('/stocks/info/fetchCompanyData', async (company: string) => {
     const API_URL = 'https://www.alphavantage.co/query';
     const data = {
         function: 'OVERVIEW',

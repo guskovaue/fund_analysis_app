@@ -7,7 +7,7 @@ import { createAddNewCompanyAction } from '../store/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { State } from '../types';
 import { FAIL_ADD_NEW_COMPANY, MY_COMPANIES } from '../constants';
-import { fetchCompanyOverview } from '../store/thunks';
+import { fetchCompanyData } from '../store/thunks';
 
 export default (): React.ReactElement => {
     const navigation = useNavigation();
@@ -21,7 +21,7 @@ export default (): React.ReactElement => {
         if (canAddCompany) {
             const companyName = inputCompanyName.toUpperCase();
             dispatch(createAddNewCompanyAction(companyName));
-            dispatch(fetchCompanyOverview(companyName));
+            dispatch(fetchCompanyData(companyName));
             navigation.navigate(MY_COMPANIES);
         }
         else {

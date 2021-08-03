@@ -16,7 +16,7 @@ export default (): React.ReactElement => {
   const companiesList: string[] = useSelector((state: State) => state.companiesNames);
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  console.log('companiesList', companiesList);
+
   useEffect(() => {
     if (companiesList.length === 0) setIsEditMode(false);
   }, [companiesList]);

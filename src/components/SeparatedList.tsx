@@ -4,7 +4,6 @@ import styles from '../styles';
 import { CompanyInfo } from '../types';
 
 export default ({ companyInfo, significantValues }: { companyInfo: CompanyInfo; significantValues: string[] }): React.ReactElement => {
-    console.log('companyInfo from separated list', companyInfo);
     const isSignificantValue = (parameterName: string) => significantValues.includes(parameterName);
     const tranformParameterName = (parameterName: string) => parameterName.split(/(?=[A-Z][a-z])/).join(' ');
 

@@ -9,7 +9,7 @@ import { AnyAction } from 'redux';
 
 export const INITIAL_STATE = {
   companiesNames: [] as string[],
-  companyOverview: {} as Record<string, unknown>,
+  companiesData: {} as Record<string, unknown>,
   error: null,
   loading: false
 }
@@ -27,6 +27,7 @@ export default (state = INITIAL_STATE, action: AnyAction): State => {
       return {
         ...state,
         companiesNames: state.companiesNames.filter(value => value != action.companyName),
+
       }
     case FETCH_COMPANY_OVERVIEW_PENDING:
       return {
@@ -36,7 +37,7 @@ export default (state = INITIAL_STATE, action: AnyAction): State => {
     case FETCH_COMPANY_OVERVIEW_FULFILLED:
       return {
         ...state,
-        companyOverview: { ...state.companyOverview, [action.payload.Symbol]: action.payload },
+        companiesData: { ...state.companiesData, [action.payload.Symbol]: action.payload },
         loading: false
       };
     case FETCH_COMPANY_OVERVIEW_REJECTED:

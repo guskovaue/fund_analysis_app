@@ -23,12 +23,18 @@ export default (state = INITIAL_STATE, action: AnyAction): State => {
         ...state,
         companiesNames: [...state.companiesNames, action.companyName],
       };
-    case DELETE_COMPANY:
+    case DELETE_COMPANY: {
       return {
         ...state,
         companiesNames: state.companiesNames.filter(value => value != action.companyName),
-
+        companiesData: Object.keys(state.companiesData)
+          .filter(key => key !== action.companyName)
+          .reduce((newCompaniesData, key) => {
+            newCompaniesData[key] = state.companiesData[key];
+            return newCompaniesData;
+          }, {})
       }
+    }
     case FETCH_COMPANY_OVERVIEW_PENDING:
       return {
         ...state,

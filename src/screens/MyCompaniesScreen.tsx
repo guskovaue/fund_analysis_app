@@ -22,7 +22,7 @@ export default (): React.ReactElement => {
   }, [companiesList]);
 
   return (
-    <TouchableWithoutFeedback onPress={() => setIsEditMode(false)}>
+    <TouchableWithoutFeedback key={'key'} onPress={() => setIsEditMode(false)}>
       <View style={styles.myCompaniesScreen}>
         {companiesList.map((company) => {
           return <CompanyDetailsButton
